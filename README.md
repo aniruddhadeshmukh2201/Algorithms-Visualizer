@@ -1,3 +1,4 @@
+### Algorithms-Visualizer
 
 ## C++ merge sort implementation
 ```
