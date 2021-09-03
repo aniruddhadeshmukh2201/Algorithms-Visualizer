@@ -1,5 +1,6 @@
 
-C++ merge sort implementation
+## C++ merge sort implementation
+```
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -68,9 +69,9 @@ int main() {
     printArray(arr, arr_size);
     return 0;
 }
+```
 
-
-
+```
 <html>
     <body>
     <script>
@@ -112,3 +113,4 @@ int main() {
     </script>
     </body>
 </html>
+```
