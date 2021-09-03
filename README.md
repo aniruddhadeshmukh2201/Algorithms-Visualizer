@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+<!-- 
+C++ merge sort implementation
+#include<bits/stdc++.h>
+using namespace std;
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+void merge(int arr[], int low, int mid, int high){
+    int size1 = mid-low+1; 
+    int size2 = high-mid;
+    auto arr1 = new int[size1];
+    auto arr2 = new int[size2];
+    for(auto i = 0; i < size1; i++) {
+        arr1[i] = arr[low + i];
+    }
+    for(auto i = 0; i<size2; i++) {
+        arr2[i] = arr[mid+1+i];
+    }
+    int i = 0;
+    int j = 0;
+    int k = low;
+    while(i < size1 && j < size2) {
+        if(arr1[i] <= arr2[j]){
+            arr[k] = arr1[i];
+            i++;
+        } else {
+            arr[k] = arr2[j];
+            j++;
+        }
+        k++;
+    }
+    while(i < size1) {
+        arr[k] = arr1[i];
+        i++;
+        k++;
+    }
+    while(j < size2) {
+        arr[k] = arr2[j];
+        j++;
+        k++;
+    }
+}
 
-## Available Scripts
+void mergeSort(int arr[], int low, int high) {
+    if(low>=high) {
+        return;
+    }
+    int mid = (low+high)/2;
+    mergeSort(arr, low, mid);
+    mergeSort(arr, mid+1, high);
+    merge(arr, low, mid, high);
+}
 
-In the project directory, you can run:
+void printArray(int arr[], int size) {
+    for(int i =0; i< size; i++) {
+        cout<<arr[i]<<" ";
+    }
+}
 
-### `npm start`
+int main() {
+    int arr[] = {12, 11, 13, 5, 7, 6};
+    auto arr_size = sizeof(arr)/sizeof(arr[0]);
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    cout<<"Give array is \n";
+    printArray(arr, arr_size);
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    mergeSort(arr, 0, arr_size-1);
 
-### `npm test`
+    cout<<"\n Sorted array is \n";
+    printArray(arr, arr_size);
+    return 0;
+} -->
+<html>
+    <body>
+    <script>
+    Javascript mergesort Implementation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    mSort = (array) => {
+        if(array.length == 1){
+            return array
+        }
+        const mid = Math.floor(array.length/2);
+        const left = array.slice(0, middle);
+        const right = array.slice(middle);
+        document.write(middle)
+        return merge(
+            mSort(left),
+            mSort(right)
+        )
+    }
 
-### `npm run build`
+    merge = (left, right) => {
+        let result = [];
+        let i = 0;
+        let j = 0;
+        while(i < left.length && j < right.length) {
+            if(left[i] < right[j]) {
+                result.push(left[i])
+                i++;
+                document.write("</br>");
+            } else {
+                result.push(right[j])
+                j++;
+            }
+        }
+        return concat(left.slice(i)).concat(j)
+    }
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    const list = [4, 7, 5, 9, 1, 3, 8, 2]
+    document.write(mSort(list));
+    </script>
+    </body>
+</html>
