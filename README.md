@@ -1,4 +1,4 @@
-<!-- 
+
 C++ merge sort implementation
 #include<bits/stdc++.h>
 using namespace std;
@@ -67,7 +67,10 @@ int main() {
     cout<<"\n Sorted array is \n";
     printArray(arr, arr_size);
     return 0;
-} -->
+}
+
+
+
 <html>
     <body>
     <script>
